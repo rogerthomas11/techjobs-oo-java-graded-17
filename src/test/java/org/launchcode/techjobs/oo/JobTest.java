@@ -1,6 +1,5 @@
 package org.launchcode.techjobs.oo;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -38,5 +37,39 @@ public class JobTest {
         Job testJob5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertNotEquals(testJob4, testJob5);
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        Job testJob6 = new Job();
+
+        assertTrue(testJob6.toString().startsWith(System.lineSeparator()));
+        assertTrue(testJob6.toString().endsWith(System.lineSeparator()));
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job testJob7 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals(testJob7.toString(), System.lineSeparator() +
+                "ID: " + testJob7.getId() + System.lineSeparator() +
+                "Name: " + testJob7.getName() + System.lineSeparator() +
+                "Employer: " + testJob7.getEmployer() + System.lineSeparator() +
+                "Location: " + testJob7.getLocation() + System.lineSeparator() +
+                "Position Type: " + testJob7.getPositionType() + System.lineSeparator() +
+                "Core Competency: " + testJob7.getCoreCompetency() + System.lineSeparator());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField(){
+        Job testJob8 = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals(testJob8.toString(), System.lineSeparator() +
+                "ID: " + testJob8.getId() + System.lineSeparator() +
+                "Name: " + testJob8.getName() + System.lineSeparator() +
+                "Employer: " + testJob8.getEmployer() + System.lineSeparator() +
+                "Location: " + testJob8.getLocation() + System.lineSeparator() +
+                "Position Type: " + testJob8.getPositionType() + System.lineSeparator() +
+                "Core Competency: " + testJob8.getCoreCompetency() + System.lineSeparator());
     }
 }

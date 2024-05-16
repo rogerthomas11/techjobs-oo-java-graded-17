@@ -21,13 +21,63 @@ public class Job {
         nextId++;
     }
 
-    public Job(String name, Employer employer, Location location, PositionType postionType, CoreCompetency coreCompetency) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
         this.employer = employer;
         this.location = location;
-        this.positionType = postionType;
+        this.positionType = positionType;
         this.coreCompetency = coreCompetency;
+    }
+
+    @Override
+    public String toString() {
+        String nameString;
+        String employerString;
+        String locationString;
+        String positionTypeString;
+        String coreCompetencyString;
+
+        if (name == null || name == "") {
+            nameString = "Data not available";
+        }
+        else {
+            nameString = name;
+        }
+
+        if (employer == null || Objects.equals(employer.getValue(), "")){
+            employerString = "Data not available";
+        }
+        else{
+            employerString = employer.getValue();
+        }
+        if (location == null || Objects.equals(location.getValue(), "")){
+            locationString = "Data not available";
+        }
+        else{
+            locationString = location.getValue();
+        }
+        if (positionType == null || Objects.equals(positionType.getValue(), "")){
+            positionTypeString = "Data not available";
+        }
+        else{
+            positionTypeString = positionType.getValue();
+        }
+        if (coreCompetency == null || Objects.equals(coreCompetency.getValue(), "")){
+            coreCompetencyString = "Data not available";
+        }
+        else{
+            coreCompetencyString = coreCompetency.getValue();
+        }
+
+
+        return System.lineSeparator() +
+                "ID: " + id + System.lineSeparator() +
+                "Name: " + nameString + System.lineSeparator() +
+                "Employer: " + employerString + System.lineSeparator() +
+                "Location: " + locationString + System.lineSeparator() +
+                "Position Type: " + positionTypeString + System.lineSeparator() +
+                "Core Competency: " + coreCompetencyString + System.lineSeparator();
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
