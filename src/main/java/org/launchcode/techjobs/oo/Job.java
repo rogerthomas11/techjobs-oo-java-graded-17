@@ -40,36 +40,32 @@ public class Job {
 
         if (name == null || name == "") {
             nameString = "Data not available";
-        }
-        else {
+        }else {
             nameString = name;
         }
 
         if (employer == null || Objects.equals(employer.getValue(), "")){
             employerString = "Data not available";
-        }
-        else{
+        }else{
             employerString = employer.getValue();
         }
+
         if (location == null || Objects.equals(location.getValue(), "")){
             locationString = "Data not available";
-        }
-        else{
+        }else{
             locationString = location.getValue();
         }
+
         if (positionType == null || Objects.equals(positionType.getValue(), "")){
             positionTypeString = "Data not available";
-        }
-        else{
+        }else{
             positionTypeString = positionType.getValue();
         }
         if (coreCompetency == null || Objects.equals(coreCompetency.getValue(), "")){
             coreCompetencyString = "Data not available";
-        }
-        else{
+        }else{
             coreCompetencyString = coreCompetency.getValue();
         }
-
 
         return System.lineSeparator() +
                 "ID: " + id + System.lineSeparator() +

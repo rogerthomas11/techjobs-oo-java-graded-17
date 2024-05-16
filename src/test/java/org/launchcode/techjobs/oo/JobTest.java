@@ -62,12 +62,12 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField(){
-        Job testJob8 = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job testJob8 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertEquals(testJob8.toString(), System.lineSeparator() +
                 "ID: " + testJob8.getId() + System.lineSeparator() +
                 "Name: " + testJob8.getName() + System.lineSeparator() +
-                "Employer: " + testJob8.getEmployer() + System.lineSeparator() +
+                "Employer: " + "Data not available" + System.lineSeparator() +
                 "Location: " + testJob8.getLocation() + System.lineSeparator() +
                 "Position Type: " + testJob8.getPositionType() + System.lineSeparator() +
                 "Core Competency: " + testJob8.getCoreCompetency() + System.lineSeparator());
